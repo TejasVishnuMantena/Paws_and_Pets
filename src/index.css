@@ -1,0 +1,209 @@
+@import url('https://fonts.googleapis.com/css2?family=VT323&family=IBM+Plex+Mono:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 40 33% 94%;
+    --foreground: 0 0% 7%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 7%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 7%;
+
+    --primary: 0 0% 7%;
+    --primary-foreground: 40 33% 94%;
+
+    --secondary: 40 20% 88%;
+    --secondary-foreground: 0 0% 7%;
+
+    --muted: 40 15% 90%;
+    --muted-foreground: 0 0% 40%;
+
+    --accent: 43 80% 52%;
+    --accent-foreground: 0 0% 7%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 0 0% 7%;
+    --input: 0 0% 7%;
+    --ring: 43 80% 52%;
+
+    --radius: 0px;
+
+    --sidebar-background: 40 33% 94%;
+    --sidebar-foreground: 0 0% 7%;
+    --sidebar-primary: 0 0% 7%;
+    --sidebar-primary-foreground: 40 33% 94%;
+    --sidebar-accent: 40 20% 88%;
+    --sidebar-accent-foreground: 0 0% 7%;
+    --sidebar-border: 0 0% 7%;
+    --sidebar-ring: 43 80% 52%;
+  }
+
+  .dark {
+    --background: 0 0% 7%;
+    --foreground: 40 33% 94%;
+
+    --card: 0 0% 12%;
+    --card-foreground: 40 33% 94%;
+
+    --popover: 0 0% 12%;
+    --popover-foreground: 40 33% 94%;
+
+    --primary: 40 33% 94%;
+    --primary-foreground: 0 0% 7%;
+
+    --secondary: 0 0% 18%;
+    --secondary-foreground: 40 33% 94%;
+
+    --muted: 0 0% 18%;
+    --muted-foreground: 40 15% 65%;
+
+    --accent: 43 80% 52%;
+    --accent-foreground: 0 0% 7%;
+
+    --destructive: 0 62% 30%;
+    --destructive-foreground: 40 33% 94%;
+
+    --border: 40 33% 94%;
+    --input: 40 33% 94%;
+    --ring: 43 80% 52%;
+
+    --sidebar-background: 0 0% 7%;
+    --sidebar-foreground: 40 33% 94%;
+    --sidebar-primary: 40 33% 94%;
+    --sidebar-primary-foreground: 0 0% 7%;
+    --sidebar-accent: 0 0% 18%;
+    --sidebar-accent-foreground: 40 33% 94%;
+    --sidebar-border: 40 33% 94%;
+    --sidebar-ring: 43 80% 52%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+    cursor: url('/paw-cursor.png') 4 4, auto;
+  }
+
+  body {
+    @apply bg-background text-foreground font-body;
+    cursor: url('/paw-cursor.png') 4 4, auto;
+  }
+
+  a, button, [role="button"], input[type="submit"], select {
+    cursor: url('/paw-cursor.png') 4 4, pointer;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'VT323', monospace;
+  }
+}
+
+@layer components {
+  .pixel-shadow {
+    box-shadow: 4px 4px 0px 0px hsl(var(--foreground));
+  }
+
+  .pixel-shadow-sm {
+    box-shadow: 2px 2px 0px 0px hsl(var(--foreground));
+  }
+
+  .pixel-shadow-accent {
+    box-shadow: 4px 4px 0px 0px hsl(var(--accent));
+  }
+
+  .pixel-btn {
+    @apply border-2 border-foreground font-display px-6 py-3 transition-all duration-100 cursor-pointer;
+    box-shadow: 4px 4px 0px 0px hsl(var(--foreground));
+  }
+
+  .pixel-btn:hover {
+    transform: translate(2px, 2px);
+    box-shadow: 2px 2px 0px 0px hsl(var(--foreground));
+  }
+
+  .pixel-btn:active {
+    transform: translate(4px, 4px);
+    box-shadow: none;
+  }
+
+  .marquee {
+    animation: marquee 20s linear infinite;
+  }
+
+  @keyframes marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
+  @keyframes tail-wag {
+    0%, 100% { transform: rotate(-20deg); }
+    50% { transform: rotate(20deg); }
+  }
+
+  @keyframes ear-wiggle {
+    0%, 100% { transform: rotate(-5deg); }
+    50% { transform: rotate(5deg); }
+  }
+
+  @keyframes ear-wiggle-reverse {
+    0%, 100% { transform: rotate(5deg); }
+    50% { transform: rotate(-5deg); }
+  }
+
+  @keyframes blink {
+    0%, 85%, 100% { transform: scaleY(1); }
+    90% { transform: scaleY(0.05); }
+  }
+
+  .animate-tail-wag {
+    animation: tail-wag 0.4s ease-in-out infinite;
+    transform-origin: bottom center;
+  }
+
+  .animate-ear-wiggle {
+    animation: ear-wiggle 1.2s ease-in-out infinite;
+  }
+
+  .animate-ear-wiggle-reverse {
+    animation: ear-wiggle-reverse 1.2s ease-in-out infinite;
+  }
+
+  .animate-blink {
+    animation: blink 3s ease-in-out infinite;
+  }
+
+  @keyframes dog-bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-6px); }
+  }
+
+  .animate-dog-bounce {
+    animation: dog-bounce 2s ease-in-out infinite;
+  }
+
+  @keyframes breed-scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
+  .animate-breed-scroll {
+    animation: breed-scroll 30s linear infinite;
+  }
+
+  @keyframes events-scroll {
+    0% { transform: translateX(-50%); }
+    100% { transform: translateX(0); }
+  }
+
+  .animate-events-scroll {
+    animation: events-scroll 25s linear infinite;
+  }
+}
