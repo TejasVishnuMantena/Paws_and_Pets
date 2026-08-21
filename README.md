@@ -1,6 +1,12 @@
+<div align="center">
+
 # 🐾 Paws & Pets
 
 ### A Modern Marketplace for Pets
+## 🌐 Live Website
+
+
+👉 **[Visit Paws & Pets](https://pawsandpets.vercel.app/)**
 
 *Buy • Sell • Discover • Connect*
 
@@ -11,6 +17,8 @@
 ![Status](https://img.shields.io/badge/Status-Active-success?style=flat-square)
 
 ---
+
+</div>
 
 ## 🌟 Overview
 
